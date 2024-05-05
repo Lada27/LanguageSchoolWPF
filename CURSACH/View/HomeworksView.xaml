@@ -1,0 +1,457 @@
+﻿<Window x:Class="CURSACH.View.HomeworksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CURSACH.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+    
+    Title="homeworkView" Height="400" Width="533">
+
+    <Window.Resources>
+        <Style TargetType="ScrollViewer" x:Key="CustomScrollViewerStyle">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+
+    <Border 
+     Background="#73574F"
+    >
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Задания"
+                       Foreground="DarkGray"
+                       FontSize="10"
+                       FontFamily="Montserrat"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       Margin="10,0,0,0"/>
+                <Button x:Name="btnMinimize"                           
+                    BorderThickness="0"
+                    Content="-"
+                    Foreground="White"
+                    FontSize="16"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="1"
+                    Click="btnMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#937972"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnMaximaze"                           
+            BorderThickness="0"
+            Content="[ ]"
+            Foreground="White"
+            FontSize="10"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Grid.Column="2"
+            Click="btnMaximaze_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#937972"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#278BEF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                CornerRadius="9"
+                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnClose"                          
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="3"
+                    Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#937972"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C62DAE"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                CornerRadius="9"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="112"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+                <Border CornerRadius="10"
+                        Background="#937972"
+                        Margin="5"
+                        Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="btnwordsWindow"                          
+                                    BorderThickness="0"
+                                    Content="Слова"
+                                    Foreground="White"
+                                    FontSize="14"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Margin="0,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Grid.Column="1" Click="btnWords_Click"
+                                    >
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#937972"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FFC97F"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="5" Width="55" Height="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="btnlanguage"                          
+                                     BorderThickness="0"
+                                     Content="Языки"
+                                     Foreground="White"
+                                     FontSize="14"
+                                     FontFamily="Montserrat"
+                                     Cursor="Hand"
+                                     Margin="0,0,0,0"
+                                     Grid.Column="1" Click="btnlanguage_Click">
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#937972"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FFC97F"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="5" Width="55" Height="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnhomeworkView"                          
+                                     BorderThickness="0"
+                                     Content="Задания"
+                                     Foreground="#FFC97F"
+                                     FontSize="14"
+                                     FontFamily="Montserrat"
+                                     Cursor="Hand"
+                                     Margin="0,0,0,0"
+                                     Grid.Column="1">
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#937972"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#937972"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="5" Width="55" Height="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                        <Grid Grid.Row="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnProfile"                          
+                                    BorderThickness="0"
+                                    Content="Профиль"
+                                    Foreground="White"
+                                    FontSize="14"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Margin="0,0,0,0"
+                                    Grid.Column="1" Click="btnProfile_Click"
+                                    >
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="#937972"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FFC97F"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="5" Width="59" Height="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </Grid>
+
+
+                </Border>
+
+                <Border CornerRadius="10"
+                        Background="White"
+                        Margin="5"
+                        Grid.Column="1">
+
+                    <Border 
+                                CornerRadius="10"
+                                Background="#FAFAFC"
+                                BorderBrush="#937972"
+                                BorderThickness="0.5"
+                                Margin="5">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.25*"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                                
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.7*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="Задания"
+                                                Foreground="#160C31"
+                                                FontSize="16"
+                                                FontWeight="Bold"
+                                                FontFamily="Montserrat"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Margin="10,0,0,0"
+                                                Grid.Column="0"/>
+
+
+                                    <Button x:Name="btnPlusPoject"                          
+                                                    BorderThickness="0"
+                                                    Content="+"
+                                                    Foreground="White"
+                                                    FontSize="20"
+                                                    Margin="0,10,5,10"
+                                                    FontFamily="Montserrat"
+                                                    Cursor="Hand" 
+                                                    Click="btnAddHomework_Click"
+                                                    Grid.Column="1">
+
+                                        <Button.Style>
+                                            <Style TargetType="{x:Type Button}">
+                                                <Setter Property="Background" Value="#937972"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#FFC97F"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                <Border CornerRadius="30" Height="25" Width="25" Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+
+                                <StackPanel Orientation="Vertical"  Grid.Column="2">
+                                    <Border 
+                                            Background="#EDEDED"
+                                            BorderBrush="#CBCBCB"
+                                            BorderThickness="2"
+                                            Margin="0,0,0,10"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Height="25">
+
+                                        <ComboBox Name="cbLanguages" 
+                                            Foreground="#160C31"
+                                            Background="Transparent"
+                                            IsEditable="False"
+                                            FontSize="15"
+                                            FontFamily="Montserrat"
+                                            BorderThickness="0"
+                                            Margin="2" BorderBrush="Transparent"
+                                            Width="120"
+                                            Height="23"
+                                                  SelectedIndex="0"
+                                                  SelectionChanged="ComboBox_SelectionChanged"
+                                                >
+
+                                            <ComboBoxItem Content="Все яыки"/>
+
+                                        </ComboBox>
+
+                                    </Border>
+
+                                    <Border 
+                                        Background="#EDEDED"
+                                        BorderBrush="#CBCBCB"
+                                        BorderThickness="2"
+                                        Margin="0,0,0,10"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Height="25">
+
+                                        <ComboBox Name="cbStatus" 
+                                        SelectedIndex="0" 
+                                            Foreground="#160C31"
+                                            Background="Transparent"
+                                            IsEditable="False"
+                                            FontSize="15"
+                                            FontFamily="Montserrat"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            BorderThickness="0"
+                                              Width="120"
+                                              Height="23"
+                                            Margin="2" BorderBrush="Transparent" 
+                                                  SelectionChanged="ComboBox_SelectionChanged">
+
+                                            <ComboBoxItem Content="Любой статус"/>
+                                            <ComboBoxItem Content="В процессе"/>
+                                            <ComboBoxItem Content="Закончено"/>
+                                            <ComboBoxItem Content="В ожидании"/>
+
+                                        </ComboBox>
+                                    </Border>
+                                </StackPanel>
+
+                            </Grid>
+
+                            <ScrollViewer Grid.Row="1" Style="{StaticResource CustomScrollViewerStyle}" Margin="0,0,0,25" VerticalScrollBarVisibility="Auto">
+                                <StackPanel x:Name="spAllHomeworks" Orientation="Vertical">
+                                    </StackPanel>
+                                </ScrollViewer>
+
+
+                        </Grid>
+
+                    </Border>
+
+                        
+                           
+                   
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>
+

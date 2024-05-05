@@ -1,0 +1,288 @@
+﻿<Window x:Class="CURSACH.View.WordDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CURSACH.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+    
+    Title="language" Height="400" Width="533">
+
+    <Window.Resources>
+        <!-- Стиль для ComboBox -->
+        <Style x:Key="CustomComboBoxStyle" TargetType="ComboBoxItem">
+
+            <Setter Property="Foreground" Value="Black"/>
+            <!-- Цвет текста -->
+            <Setter Property="Background" Value="White"/>
+            <!-- Цвет фона -->
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <!-- Цвет границы -->
+            <Setter Property="BorderThickness" Value="1"/>
+            <!-- Толщина границы -->
+
+        </Style>
+
+        
+    </Window.Resources>
+
+
+
+    <Grid>
+
+        <Border 
+         Background="#73574F"
+         BorderBrush="#937972"
+     
+>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Подробности слова"
+                           Foreground="DarkGray"
+                           FontSize="10"
+                           FontFamily="Montserrat"
+                           Grid.Column="0"
+                           VerticalAlignment="Center"
+                           Margin="10,0,0,0"/>
+                   
+                </Grid>
+
+
+
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Border 
+            Background="White"
+            BorderBrush="#CBCBCB"
+            BorderThickness="4"
+            Margin="15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="btnCloseWordDetails"                           
+                                    BorderThickness="0"
+                                    Content="X"
+                                    Foreground="Black"
+                                    FontSize="20"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    Grid.Column="0"
+                                    Click="btnCloseDetails_Click"
+                                    VerticalAlignment="Top"
+                                    Margin="0,15,0,0">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFC97F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="35" Height="35" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBox x:Name="Word" Grid.Column="1"
+                             Text="Word"
+                            Foreground="#160C31"
+                            FontSize="45"
+                            FontWeight="Bold"
+                            FontFamily="Montserrat"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            TextWrapping="Wrap"
+                            Margin="5"
+                            BorderThickness="0"/>
+
+                    </Grid>
+
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Grid.Column="0"
+                                  Text="Перевод:"
+                                 Foreground="#160C31"
+                                 FontSize="30"
+                                 FontFamily="Montserrat"
+                                 HorizontalAlignment="Right"
+                                 VerticalAlignment="Center"
+                                 TextWrapping="Wrap"
+                                 Margin="30,0"
+                                />
+
+                        <TextBox x:Name="Translation" Grid.Column="1"
+                                  Text="Слово"
+                                 Foreground="#160C31"
+                                 FontSize="30"
+                                 FontFamily="Montserrat"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 TextWrapping="Wrap"
+                                 Margin="30,0"
+                                 BorderThickness="0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock  Text="Статус:"
+                                     Foreground="#160C31"
+                                     FontSize="30"
+                                     FontFamily="Montserrat"
+                                     HorizontalAlignment="Right"
+                                     VerticalAlignment="Center"
+                                     TextWrapping="Wrap "
+                                     Margin="30,0"
+                                     Grid.Column="0"/>
+
+                        <Border Grid.Column="1"
+                                Background="#EDEDED"
+                                CornerRadius="20"
+                                BorderThickness="0"
+                                Margin="10,0,10,0"
+                                Height="35">
+
+
+                            <ComboBox Name="cbStatus"
+                                                  SelectedIndex="0" 
+                                                  Foreground="#160C31"
+                                                  Background="Transparent"
+                                                  FontSize="19"
+                                                  FontFamily="Montserrat"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  BorderThickness="0"
+                                                  IsEditable="False" 
+                                                  Margin="2" BorderBrush="Transparent"
+          >
+                                <ComboBoxItem Content="Учу" Style="{StaticResource CustomComboBoxStyle}"/>
+                                <ComboBoxItem Content="В ожидании" Style="{StaticResource CustomComboBoxStyle}"/>
+                                <ComboBoxItem Content="Знаю" Style="{StaticResource CustomComboBoxStyle}"/>
+                            </ComboBox>
+                        </Border>
+
+                    </Grid>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="btnDeleteWord"  
+                                        Grid.Column="0"
+                                    Content="Удалить"
+                                    Foreground="#160C31"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    FontSize="19"
+                                    VerticalAlignment="Center"
+                                    Click="DeleteWord_Click"
+                                    BorderThickness="0"
+>
+
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="#F5F5F5"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFC97F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border BorderThickness="0" CornerRadius="20" Width="190" Height="38" Background="{TemplateBinding Background}">
+                                        <ContentPresenter Margin="10,5,5,10" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button x:Name="btnSave"   
+                                        Grid.Column="1"
+                                    Content="Сохранить"
+                                    Foreground="#160C31"
+                                    FontFamily="Montserrat"
+                                    Cursor="Hand"
+                                    FontSize="19"
+                                    VerticalAlignment="Center"
+                                    Click="btnSave_Click"
+                                    BorderThickness="0"
+>
+
+                            <Button.Style>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Background" Value="#F5F5F5"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFC97F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border   BorderThickness="0" CornerRadius="20" Width="190" Height="38" Background="{TemplateBinding Background}">
+                                        <ContentPresenter Margin="10,5,5,10" HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+
+                    </Grid>
+                </Grid>
+               
+            </Border>
+
+        </Grid>
+    </Grid>
+
+</Window>
+
